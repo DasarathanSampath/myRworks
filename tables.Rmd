@@ -1,0 +1,29 @@
+---
+title: "tables"
+author: "Dasarathan Sampath"
+date: "04/02/2020"
+#output: 
+ #   html_document:
+  #      keep_md: true
+allow_html_in_all_outputs: yes
+output:
+  md_document:
+    variant: markdown_github
+        
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tables Example
+```{r, tables}
+library(kableExtra)
+#library(rmarkdown)
+#tabledata <- read.csv("2014_UPLOAD.csv")
+#paged_table(tabledata, options = list(rows.print=15))
+library(DT)
+kable(head(iris), format = "markdown", padding = 2)
+
+```
+

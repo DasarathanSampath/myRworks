@@ -1,0 +1,24 @@
+Descriptions,Abbreviations
+"GVA Agriculture, forestry and fishing",GVA_AGRI
+GVA Mining and quarrying,GVA_MINING
+GVA Manufacturing ,GVA_MANUFAC
+"GVA Electricity, gas, water supply and other utility services",GVA_ELECTRIC
+GVA Construction,GVA_CONSTRU
+"GVA Trade, repair, hotels and restaurants",GVA_TRADE
+"GVA Transport, storage, communication & services related to broadcasting ",GVA_TRANSPOR
+GVA Financial services,GVA_FINANCIAL
+"GVA Real estate, ownership of dwelling and professional services",GVA_REAL
+GVA Public administration and defence,GVA_PUBLIC
+GVA Other Services,GVA_OTHER
+GVA at Total,GVA_AT
+Taxes on Products including import duties,TAXES
+Less Subsidies on Products,SUBSIDIES
+"GDP agriculture, forestry & fishing",GDP_AGRI
+GDP mining & quarrying,GDP_MINING
+GDP manufacturing,GDP_MANUFAC
+"GDP electricity, gas & water supply",GDP_ELECTRIC
+GDP construction,GDP_CONSTRU
+"GDP trade, hotels & restaurant",GDP_TRADE
+"GDP transport, storage & communication",GDP_TRANSPOR
+"GDP financing, insurance, real estate & business services",GDP_FINANCIAL
+"GDP community, social & personal services",GDP_SOCIAL

@@ -1,0 +1,233 @@
+---
+title: "Elector of Indian States"
+id: "elector-of-indian-states"
+author: "Dasarathan Sampath"
+date: "13/02/2021"
+output: html_document
+#output:
+ # md_document:
+  #    variant: markdown+backtick_code_blocks-fenced_code_attributes-header_attributes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Electors & voters of Indian states
+
+This study was maded to understand  the below aspects in various states of India,
+
+    - growth of electors
+    - growth of voting percentage
+
+This analysis resulted in understanding below additional aspects
+
+    - Year of formation of various states after Independence
+    - Re-organisation of various regions based on the linguistic identification of different languages in India
+    - Comparing the electors growth between states
+    - Gives an indirect measure of population growth in various states, growth of different language speaking population
+    - Indirect measure for the declining/stagnated population in various states of India
+
+### Terminology
+Electors - Eligible to vote  
+Voters - Who appeared and voted in that specific election
+
+
+The below plot has
+
+  x-axis = Year of Parliamentary election
+  y-axis = Electors divided by 1,000,000.
+
+```{r electors-voters, dev='png', fig.width=10, fig.height=25, echo=FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+electors <- read.csv("C:/Users/Dasarathan/Documents/myRworks/elector-of-indian-states.csv", stringsAsFactors =FALSE)
+electors$electors = electors$electors / 1000000
+electors$voters = electors$voters / 1000000
+
+p = ggplot(electors, aes(x=year, y=electors))+facet_wrap(~statename, ncol = 4, shrink = FALSE, labeller = label_wrap_gen(10))+geom_point() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))+ scale_x_continuous("Year", labels = as.character(electors$year), breaks = electors$year) + labs(title = "Electors of Indian States", y="Electors/1,000,000")
+
+print(p)
+```
+
+Data is from Parliamentary elections state wise data.
+
+Undersatnd population growth, formation of regions, growth of various language speaking peoples
+
+From the above chart,
+
+### Ajmer / Bhopal / Bilaspur / Kutch / Madhya Bharat / Saurashtra / Vindhya Pradesh
+    - They has electors only for the year 1951
+    - Ajmer was merged with Rajasthan in 1956
+    - Bhopal was merged with Madhya Pradesh in 1956
+    - Bilaspur was merged with Himachal Pradesh in 1954
+    - Kutch was merged with State of Bombay in 1956
+    - Madhya Bharat was merged with Madhya Pradesh in 1956
+    - Saurashtra was merged with state of Bombay in 1956
+    - Vindhya Pradesh was merged with Madhya Pradesh in 1956
+
+### Andaman & Nicobar Islands
+    - It has electors only from the year 1967
+    - It became part India from 1950 and It was announced as Union territory of India from 1956
+    
+### Andhra Pradesh, Telangan & Hyderabad
+    - Andhra Pradesh has electors only from the year 1957
+    - Hyderabad has electors only for the year 1951
+    - Telanga has electors only from the year 2019
+    - Hyderabad was separated from the state of Madaras in 1953 based on the linguistic indentity of Telugu speaking peoples
+    - Later in 1956 Hyderabad state was renamed to Andhra Pradesh after removing Kannada speaking regions & Marathi speaking region
+    - Telangana was separated from Andhra Pradesh in the year 2014
+
+### Arunachal pradesh
+    - It has electors from the year 1977
+    - It was formed in the year 1972 as a Union territory from "North east frontier agency" and later it received the status of a state in 1987
+
+### Bombay, Maharastra and Gujarat
+    - Bombay has electors only for the year 1951 & 1957
+    - It was finally splitted in to Maharashtra & Gujarat in the year 1960 based on the linguistic identity of Marathi & Gujarati speaking peoples
+    - Few Marathi speaking regions from the state of Hyderabad were merged with Maharashtra
+    - Few Kannada speaking regions from Bombay were attached to Karnataka
+
+### Chandigarh, Punjab, Haryana and Patiala & East Punjab
+    - Patiala & East Punjab has electors only for the year 1951
+    - Haryana & Chandigarh has electors from the year 1967
+    - After 1947 west Punjab was separated from India to Pakistan  along with Lahore, the old capital of Punjab
+    - For the capital of Punjab Chandigarh was formed from 50 "Paudi" speaking villages
+    - Based on the linguistic identity again the Punjab was divided in to two separate state named Punjab for punjabi speaking peoples and Haryana for Haryanvi speaking people in the year 1966
+    - Later Chandigarh was announced as Union territory to serve capital of both states Punjab & Haryana
+    
+### Chhattisgarh, Madhya Pradesh
+    - Chhattisgarh has electors from the year 2004
+    - Chhattisparh is formed in the year 2000 and it was separated from Madhya Pradesh
+
+### Goa, Daman & Diu
+    - Goa, Daman & Diu became union territory of India from 1961
+    - Until 1987 Goa, Daman & Diu were considered as a single union territory
+    - Later Goa has given the status of having its own legislative assembly
+    _ And Daman & Diu became a separate union territory
+    
+### Coorg, Mysore & Karnataka
+    - Coorg has electors only for the year 1951
+    - Coorg was merged with the state Mysore in the year 1956
+    - In the year 1956 Mysore received Kannada speaking regions from Madras state, Bombay state, Andhra state & Hyderabad state
+    - In the year 1973 the state of Mysore was renamed to Karnataka
+
+### Dadra and Nagar Haveli
+    - It has electors from the year 1967
+    - It was added to India as Union territory in the year 1961
+    
+### Jammu & Kashmir
+    - It has electors only from the year 1967
+    - The regions were under dispute with Pakistan & China until 1967
+    
+### Jharkhand, Bihar
+    - Jharkhand has electors only from 2004
+    - Jharkhand was separated from Bihar in the year 2000
+
+### Kerala, Travancore Cochin
+    - Kerala has electors only from the year 1957
+    - Travancore Cochin has electors only for the year 1951
+    - Kerala is formed from Travancore Cohin and it received Malayalam speaking regions from the state of Madras in the year 1956 base on the liguistic identity of Malayalam speaking peoples
+    
+### Laccadive, Minicoy and Amindivi, Lakshadweep
+    - Laccadive, Minicoy & Amindivi has electorly only for the year 1967 & 1971
+    - Lakshadweep has electors from the year 1977
+    - In the year 1956 Laccadive, Minicoy and Amindivi was separated from Malabar district
+    - In 1973 Laccadive, Minicoy & Amindivi was renamed to Lakshadweep
+
+### Madras, Tamil Nadu
+    - Madras state has electors only for the year 1951, 157, 1962 & 1967
+    - In the year 1956 Telugu, Malayalam & Kannada speaking regions were separated from the state of Madras
+    - Madras state was renamed to Tamil Nadu in the year 1969.
+
+### Assam, Meghalaya, Mizoram, Nagaland
+    - Mizoram & Meghalaya has electors only from the year 1977
+    - Nagaland has electors only from the year 1967
+    - Mizoram & Meghalaya were separated from Assam in the year 1972
+    - Nagaland was separated from Assam in the year 1963
+
+### Odisha & Orissa
+    - After 1951 election the name Orissa was renamed to Odisha
+
+### Pondicherry
+    - Pondicherry has electors only from the year 1967
+
+### Sikkim
+    - Sikkim has electors only from the year 1977
+    - Sikkim was added to Indian states in the year 1975
+
+### Uttarakhand, Uttaranchal
+    - Uttarakhand has electors only from the year 2014
+    - Uttaranchal has electors only for the year 2004
+    - Uttaranchal was separated from Uttar Pradesh in the year 2000
+    - In 2007 Uttaranchal was renamed to Uttarakhand
+    
+
+## Comparison of Elector & Voters in various states of India
+
+Most of the states were formed, re-oriented in the period between 1950 to 1960. For consistancy all the data before 1967 were removed in the analysis.
+
+The below states, which were merged with other states were removed in the analysis. They are
+
+    - Ajmer, Bhopal, Bilaspur, Coorg, Kutch, Madhya Bharat, Patiala & east Punjab, Saurashtra & Vindhya Pradesh
+
+
+The below states, which were recently formed and not having enough data were removed in the analysis. They are
+
+    - Telangana, 
+
+The data of states, which were renamed were merged togeather in the analysis. They are
+
+    - Mysore - Karnataka
+    - Goa, Daman & Diu - Daman & Die 
+    - Laccadive, Minicoy & Amindivi - Lakshadweep 
+    - Madras - Tamil Nadu 
+    - Orissa - Odisha;
+    - Uttaranchal - Uttarakhand
+    
+The below plot has
+
+  x-axis = Year of Parliamentary election
+  y-axis = Electors OR Voters divided by 1,000,000.
+  Line = Linear model regression line
+
+```{r electors-voters-cleaned, dev='png', fig.width=10, fig.height=25, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(reshape2)
+
+electors_cleaned <- filter(electors, year>1966)
+electors_cleaned$statename[electors_cleaned$statename == 'Madras'] <- 'TAMIL NADU'
+electors_cleaned$statename[electors_cleaned$statename == 'Goa'] <- 'GOA'
+electors_cleaned$statename[electors_cleaned$statename == 'Laccadive, Minicoy & Amindivi'] <- 'LAKSHADWEEP'
+electors_cleaned$statename[electors_cleaned$statename == 'Mysore'] <- 'KARNATAKA'
+electors_cleaned$statename[electors_cleaned$statename == 'GOA, DAMAN & DIU'] <- 'DAMAN & DIU'
+electors_cleaned$statename[electors_cleaned$statename == 'UTTARANCHAL'] <- 'Uttarakhand'
+electors_cleaned <- filter(electors_cleaned, statename != 'Telangana')
+
+electors_cleaned_melted <- melt(electors_cleaned, c("year", "statename"))
+
+p_cleaned = ggplot(electors_cleaned_melted, aes(x=year, value, fill=variable))+facet_wrap(~statename, ncol = 4, shrink = FALSE, labeller = label_wrap_gen(10))+geom_point(aes(colour = variable), alpha = 0.8) + geom_smooth(method = "lm") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))+ scale_x_continuous("Year", labels = as.character(electors_cleaned_melted$year), breaks = electors_cleaned_melted$year) + labs(title = "Electors & Voter of Indian States(Edited data as described)", y="Electors (OR) Voters/1,000,000")
+
+print(p_cleaned)
+```    
+
+Observations from the above plots
+
+    - In most of the states, the gap between the electors line & voters line are increasing OR same, which indicate "no improvement" / "decrease"  in Votting percentage.
+    - Big (OR) highly populated states are Andhra Pradesh, Bihar, Gujarat, Karnataka, Madhya Pradesh, Maharashtra, Rajasthan, Tamil Nadu, Uttar Pradesh & West Bengal.
+    - Medium size (OR) medium populated states are Assam, Chhatishgarh, Haryana, Jharkhand, Kerala, NCT of Delhi, Odisha & Punjab.
+    - Small size (OR) less populated states are Andaman & Nicobar Highlands, Arunachal Pradesh, Chandigarh, Dadra & Nagar Haveli, Daman & Diu, Goa, Himachal Pradesh, Jammu & Kashmir, Lakshadweep, Manipur, Megalaya, Mizoram, Nagaland, Pondicherry, Sikkim, Tripura & Uttarakhand.
+
+## Big (OR) Highly populated States
+
+    
+```{r electors-voters-high, dev='png', fig.width=10, fig.height=25, echo=FALSE, warning=FALSE, message=FALSE}
+
+electors_high = filter(electors_cleaned, statename == "ANDHRA PRADESH" | statename == "BIHAR" | statename == "GUJARAT" | statename == "KARNATAKA" | statename == "MADHYA PRADESH" | statename == "MAHARASHTRA" | statename == "RAJASTHAN" | statename == "TAMIL NADU" | statename == "UTTAR PRADESH" | statename == "WEST BENGAL")
+
+electors_medium = filter(electors_cleaned, statename == "ASSAM" | statename == "CHHATTISGARH" | statename == "HARYANA" | statename == "JHARKHAND" | statename == "KERALA" | statename == "NCT OF DELHI" | statename == "Odisha" | statename == "PUNJAB")
+
+electors_low = filter(electors_cleaned, statename == "ANDAMAN & NICOBAR ISLANDS" | statename == "ARUNACHAL PRADESH" | statename == "CHANDIGARH" | statename == "DADRA & NAGAR HAVELI" | statename == "DAMAN & DIU" | statename == "GOA" | statename == "HIMACHAL PRADESH" | statename == "JAMMU & KASHMIR"  | statename == "LAKSHADWEEP"  | statename == "MANIPUR"  | statename == "MEGHALAYA"  | statename == "MIZORAM"  | statename == "NAGALAND"  | statename == "PONDICHERRY"  | statename == "TRIPURA"  | statename == "Uttarakhand" | statename == "SIKKIM")
+
+```    
